@@ -1,0 +1,36 @@
+{
+    "ConfigVersion": 10,
+    "DEVICE": [
+        {
+            "DeviceType": "HAILO8L",
+            "RuntimeAgent": "HAILORT",
+            "SupportedDeviceTypes": "HAILORT/HAILO8L"
+        }
+    ],
+    "PRE_PROCESS": [
+        {
+            "InputType": "Image",
+            "InputN": 1,
+            "InputH": 384,
+            "InputW": 384,
+            "InputC": 3,
+            "InputPadMethod": "letterbox",
+            "InputResizeMethod": "nearest",
+            "InputQuantEn": true
+        }
+    ],
+    "MODEL_PARAMETERS": [
+        {
+            "ModelPath": "yolov8n_Incheon.hef"
+        }
+    ],
+    "POST_PROCESS": [
+        {
+            "OutputPostprocessType": "SegmentationYoloV8",
+            "LabelsPath": "labels.json",
+            "OutputNumClasses": 5,
+            "OutputConfThreshold": 0.3,
+            "SigmoidOnCLS": true
+        }
+    ]
+}
